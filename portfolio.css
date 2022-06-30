@@ -1,0 +1,106 @@
+body {
+	display: grid;
+}
+img {
+	height: 200px;
+}
+div {
+
+}
+.item {
+	align-content: center;
+	justify-content: center;
+}
+#intro {
+display: grid;
+justify-content: center;
+}
+#intro h1 {
+	font-size: 4rem;
+	text-align: center;
+}
+
+/*********************DIRECTORY ITEMS*/
+.item h2 {
+	grid-area: head;
+}
+.item p {
+	grid-area: text;
+}
+.item section{
+	grid-area: lang;
+	justify-self: center;
+}
+.item img{
+	grid-area: image;
+}
+#Burgess {
+	display: grid;
+	grid-template-areas: 
+    'head head head head head head'
+    'lang lang lang lang image image'
+    'text text text text text text';
+}
+#Calculator {
+	display: grid;
+	grid-template-areas: 
+    'image image head head head head'
+    'image image text text text text'
+    'lang lang text text text text';
+}
+#Turtle {
+	display: grid;
+	grid-template-areas: 
+    'head head image image lang lang'
+    'head head image image lang lang'
+    'text text text text text text';
+}
+#Saitama {
+	display: grid;
+	grid-template-areas: 
+    'head head head head head head'
+    'text text text text text text'
+    'lang lang lang lang image image';
+    
+}
+
+/*********************TEXT*/
+h2 {
+	padding-right: 1rem;
+	padding-left: 1rem;
+	justify-self: center;
+	font-size: 3rem;
+	text-align: center;
+}
+p {
+	font-size: 2.3rem;
+	padding-left: 1.3em;
+	padding-right: 1em;
+	line-height: 1.5;
+}
+/*********************LANGUAGE LIST*/
+section {
+}
+section h3 {
+	font-size: 2.4rem;
+	margin-bottom: 0px;
+}
+section li {
+	font-size: 2rem;
+}
+/*********************VISIT SITE LINK*/
+h3.link {
+	font-size: 2.5em;
+	justify-self: center;
+	padding-bottom: 8rem;
+}
+/*********************Calculator*/
+#calcPic {
+	height: 300px;
+	justify-self: center;
+	align-self: flex-end;
+}
+/*********************Turtle Game*/
+#turtlePic {
+	justify-self: center;
+}
