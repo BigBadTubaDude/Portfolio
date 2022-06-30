@@ -118,6 +118,10 @@ h3.link {
 	justify-self: center;
 	padding-bottom: 8rem;
 }
+/*********************Burgess*/
+#Burgess section h3 {
+	margin-top: 0;
+}
 /*********************Calculator*/
 #calcPic {
 	height: 300px;
