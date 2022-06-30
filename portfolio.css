@@ -14,10 +14,34 @@ div {
 #intro {
 display: grid;
 justify-content: center;
+	grid-template-areas: 
+    'head head head head head head'
+    'name name name email email email'
+    'phone phone phone major major major';
+}
+#intro #nameInfo {
+	grid-area: name;
+}
+#intro #emailInfo {
+	grid-area: email;
+}
+#intro #phoneInfo {
+	grid-area: phone;
+}
+#intro #majorInfo {
+	grid-area: major;
 }
 #intro h1 {
 	font-size: 4rem;
+	grid-area: head;
 	text-align: center;
+}
+#intro p {
+	font-size: 1.9rem;
+	margin: 0;
+}
+#intro p.right {
+	float: right;
 }
 
 /*********************DIRECTORY ITEMS*/
