@@ -76,8 +76,8 @@ justify-content: center;
 	display: grid;
 	grid-template-areas: 
     'head head head head lang lang'
-    'text text text text lang lang'
-    'text text text text image image';
+    'text text text text text text'
+    'text text text text text text';
 }
 #Turtle {
 	display: grid;
@@ -108,6 +108,7 @@ p {
 	padding-left: 1em;
 	padding-right: 1em;
 	line-height: 1.5;
+	text-align: justify;
 }
 /*********************LANGUAGE LIST*/
 section {
@@ -142,9 +143,11 @@ h3.link {
 	padding-top: 2rem;
 }
 #ADPPic {
-	height: 400px;
+	height: 325px;
 	justify-self: center;
 	align-self: flex-end;
+	float: right;
+	padding-left: 30px;
 }
 /*********************DIVIDING LINES*/
 .divideLine {
