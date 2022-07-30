@@ -65,6 +65,13 @@ justify-content: center;
     'lang lang lang lang image image'
     'text text text text text text';
 }
+#Cannon {
+	display: grid;
+	grid-template-areas: 
+    'head head head head head head'
+    'text text text text text text'
+    'lang lang lang lang image image';
+}
 #Calculator {
 	display: grid;
 	grid-template-areas: 
