@@ -1,5 +1,6 @@
 import './App.css'
 import './reset.css'
+
 import TurlePNG from './assets/Turtle.png'
 import SaitamaPNG from './assets/Saitama.png'
 import AdpPNG from './assets/ADP.png'
@@ -7,12 +8,15 @@ import BurgessPNG from './assets/Burgess.png'
 import CannonPNG from './assets/Cannon.png'
 import CalculatorPNG from './assets/Calculator.png'
 
-function App() {
+import usePortfolioEntries from './hooks/fetchHooks/usePortfolioEntries'
 
+function App() {
+  const { data: portfolioEntries } = usePortfolioEntries()
+  console.log(portfolioEntries)
   return (
     <>
       <div id="intro">
-        <h1>Programming Porhhhhhtfolio</h1>
+        <h1>Programming Portfolio</h1>
         <p id="nameInfo">Name: Coleman Alexander</p>
         <p id="emailInfo">Email: Bigbadtubadude@gmail.com</p>
         <p id="phoneInfo" className="rightInfo">Phone: 864-633-9727</p>
