@@ -1,28 +1,47 @@
-import './App.css'
-import './reset.css'
+import "./App.css";
+import "./reset.css";
 
-import TurlePNG from './assets/Turtle.png'
-import SaitamaPNG from './assets/Saitama.png'
-import AdpPNG from './assets/ADP.png'
-import BurgessPNG from './assets/Burgess.png'
-import CannonPNG from './assets/Cannon.png'
-import CalculatorPNG from './assets/Calculator.png'
+import TurlePNG from "./assets/Turtle.png";
+import SaitamaPNG from "./assets/Saitama.png";
+import AdpPNG from "./assets/ADP.png";
+import BurgessPNG from "./assets/Burgess.png";
+import CannonPNG from "./assets/Cannon.png";
+import CalculatorPNG from "./assets/Calculator.png";
 
-import usePortfolioEntries from './hooks/fetchHooks/usePortfolioEntries'
+import usePortfolioEntries from "./hooks/fetchHooks/usePortfolioEntries";
 
 function App() {
-  const { data: portfolioEntries } = usePortfolioEntries()
-  console.log(portfolioEntries)
-  return (
-    <>
-      <div id="intro">
-        <h1>Programming Portfolio</h1>
-        <p id="nameInfo">Name: Coleman Alexander</p>
-        <p id="emailInfo">Email: Bigbadtubadude@gmail.com</p>
-        <p id="phoneInfo" className="rightInfo">Phone: 864-633-9727</p>
-        <p id="majorInfo" className="rightInfo">Major: Software and Web Development</p>
-      </div>
-      <div id="Burgess" className="item HTML CSS JavaScript">
+    const { data: portfolioEntries } = usePortfolioEntries();
+    return (
+        <>
+            <div id="intro">
+                <h1>Programming Portfolio</h1>
+                <p id="nameInfo">Name: Coleman Alexander</p>
+                <p id="emailInfo">Email: Bigbadtubadude@gmail.com</p>
+                <p id="phoneInfo" className="rightInfo">
+                    Phone: 864-633-9727
+                </p>
+                <p id="majorInfo" className="rightInfo">
+                    Major: Software and Web Development
+                </p>
+            </div>
+            {portfolioEntries?.items?.map((entry) => {
+                const demoMediaAssetIDs = entry.demoMedia.map(
+                    (asset) => asset.sys.id
+                );
+                const demoMediaAssets = portfolioEntries?.assets.filter(
+                    (item) => demoMediaAssetIDs.includes(item.id)
+                );
+                return (
+                    <>
+                        <h1>{entry.projectName}</h1>
+                        {demoMediaAssets.map((asset) => (
+                            <img src={asset.file.url} />
+                        ))}
+                    </>
+                );
+            })}
+            {/* <div id="Burgess" className="item HTML CSS JavaScript">
         <h2>Gary L. Burgess SC State Superintendent of Education Campaign Site</h2>
         <p>This was developed by Joel Vasquez and myself as the official campaign site for Gary L. Burgess. I also managed the hosting of the site on GoDaddy for the campaign. Burgess came in second in the SC Democratic primaries on June 14, 2022 with 54,464 votes (<a href="https://ballotpedia.org/Gary_Burgess">BallotPedia</a>). The official site is no longer up (the campaign is over) but, the site is still visible on <a href="https://bigbadtubadude.github.io/burgess/">GitHub Pages.</a></p>
         <section>
@@ -122,9 +141,9 @@ function App() {
         </section>
         <img id="turtlePic" src={TurlePNG} />
       </div>
-      <h3 className="link"><a href="https://replit.com/@BigBadTubaDude/Dont-Be-A-Turtle#main.py">Play game!</a></h3>
-    </>
-  )
+      <h3 className="link"><a href="https://replit.com/@BigBadTubaDude/Dont-Be-A-Turtle#main.py">Play game!</a></h3> */}
+        </>
+    );
 }
 
-export default App
+export default App;
