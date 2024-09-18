@@ -10,9 +10,7 @@ export async function getPortfolioEntries() {
                 Authorization: `Bearer ${CONTENTFUL_API_ACCESS_TOKEN}`
             }
         })
-        console.log("RES:", res)
-        console.log("DATA: ", res.data)
-        return await res?.data?.items
+        return await res?.data
     }
     catch (error) {
         console.error(error)
