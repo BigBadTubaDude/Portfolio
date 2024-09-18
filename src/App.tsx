@@ -12,7 +12,6 @@ import usePortfolioEntries from './hooks/fetchHooks/usePortfolioEntries'
 
 function App() {
   const { data: portfolioEntries } = usePortfolioEntries()
-  console.log(portfolioEntries)
   return (
     <>
       <div id="intro">
@@ -22,7 +21,10 @@ function App() {
         <p id="phoneInfo" className="rightInfo">Phone: 864-633-9727</p>
         <p id="majorInfo" className="rightInfo">Major: Software and Web Development</p>
       </div>
-      <div id="Burgess" className="item HTML CSS JavaScript">
+      {portfolioEntries?.items?.map(entry => {
+        return (<h1>{entry.projectName}</h1>)
+      })}
+      {/* <div id="Burgess" className="item HTML CSS JavaScript">
         <h2>Gary L. Burgess SC State Superintendent of Education Campaign Site</h2>
         <p>This was developed by Joel Vasquez and myself as the official campaign site for Gary L. Burgess. I also managed the hosting of the site on GoDaddy for the campaign. Burgess came in second in the SC Democratic primaries on June 14, 2022 with 54,464 votes (<a href="https://ballotpedia.org/Gary_Burgess">BallotPedia</a>). The official site is no longer up (the campaign is over) but, the site is still visible on <a href="https://bigbadtubadude.github.io/burgess/">GitHub Pages.</a></p>
         <section>
@@ -122,7 +124,7 @@ function App() {
         </section>
         <img id="turtlePic" src={TurlePNG} />
       </div>
-      <h3 className="link"><a href="https://replit.com/@BigBadTubaDude/Dont-Be-A-Turtle#main.py">Play game!</a></h3>
+      <h3 className="link"><a href="https://replit.com/@BigBadTubaDude/Dont-Be-A-Turtle#main.py">Play game!</a></h3> */}
     </>
   )
 }
