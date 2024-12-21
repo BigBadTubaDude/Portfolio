@@ -1,18 +1,12 @@
 import "./App.css";
 import "./reset.css";
 
-import usePortfolioEntries from "./hooks/fetchHooks/usePortfolioEntries";
 
-type Asset = {
-  sys : {
-    id: string,
-    linkType: "Asset",
-    type: "Link" 
-  }
-}
 
 function App() {
-    const { data: portfolioEntries } = usePortfolioEntries();
+    // const { data: portfolioEntries } = usePortfolioEntries();
+    const vertivHomePageURL : string = 'https://www.vertiv.com/en-us/?utm_source=google-ads&utm_medium=paid-search&utm_campaign=vertiv-branding&utm_term=global-na_brand-names&utm_content=en_text-ad_home-page&gad_source=1&gclid=cjwkcaia65m7bhaweiwaagu4jcb1ihqd2hoxp2_emb99ytqfvsnzozbsmlviiwloqa0vamkxbyz8-bocvvcqavd_bwe'
+    
     return (
         <>
             <div id="intro">
@@ -23,33 +17,16 @@ function App() {
                     Phone: 864-633-9727
                 </p>
                 <p id="majorInfo" className="rightInfo">
-                    Major: Software and Web Development
+                    Title: Automation Engineer                    
                 </p>
+                <p>Company: <a href={vertivHomePageURL}>Vertiv</a></p>
             </div>
-            {portfolioEntries?.items?.map((entry) => {
-                const demoMediaAssetIDs = entry.demoMedia.map(
-                    (asset : Asset) => {
-                      console.log(asset)
-                      return asset.sys.id
-                    }
-                );
-                const demoMediaAssets = portfolioEntries?.assets.filter(
-                    (item) => demoMediaAssetIDs.includes(item.id)
-                );
-                return (
-                    <>
-                        <h1>{entry.projectName}</h1>
-                        {demoMediaAssets.map((asset) => (
-                            <img 
-                              key={asset.id} 
-                              src={asset.file.url} 
-                            />
-                        ))}
-                    </>
-                );
-            })}
+            {/* {portfolioEntries?.items?.map((entry) => {
+                return <Project entry={entry}/>
+            })} */}
         </>
     );
 }
 
 export default App;
+
