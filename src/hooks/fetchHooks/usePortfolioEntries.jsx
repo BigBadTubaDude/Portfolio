@@ -18,9 +18,12 @@ export function usePortfolioEntries() {
                     ...asset.fields
                 }
             })
+            const portfolioCategories = [...new Set(data.items.flatMap(item => item.fields.tags ?? []))]
+    
             return {
                 items : portfolioEntries,
-                assets : portfolioAssets
+                assets : portfolioAssets,
+                categories : portfolioCategories,
             }
         }
     });
