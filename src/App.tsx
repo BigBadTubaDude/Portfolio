@@ -8,7 +8,7 @@ function App() {
     const vertivHomePageURL: string = 'https://www.vertiv.com/en-us/?utm_source=google-ads&utm_medium=paid-search&utm_campaign=vertiv-branding&utm_term=global-na_brand-names&utm_content=en_text-ad_home-page&gad_source=1&gclid=cjwkcaia65m7bhaweiwaagu4jcb1ihqd2hoxp2_emb99ytqfvsnzozbsmlviiwloqa0vamkxbyz8-bocvvcqavd_bwe'
     return (
         <>
-            <div id="intro">
+            <header id="intro">
                 <h1>Programming Portfolio</h1>
                 <p id="nameInfo">Name: Coleman Alexander</p>
                 <p id="emailInfo">Email: Bigbadtubadude@gmail.com</p>
@@ -19,7 +19,7 @@ function App() {
                     Title: Automation Engineer
                 </p>
                 <p>Company: <a href={vertivHomePageURL}>Vertiv</a></p>
-            </div>      
+            </header>      
                             <Projects />
         </>
     );

@@ -1,13 +1,13 @@
 import { Category } from "./Category"
-import {usePortfolioEntries} from '../hooks/fetchHooks/usePortfolioEntries'
+import { usePortfolioEntries } from "../hooks/fetchHooks/usePortfolioEntries";
 
 export function Projects() {
-    const { data: portfolioEntries } = usePortfolioEntries();
+    const { data: portfolioEntries, isLoading} = usePortfolioEntries();
     // Get list of unique categories the projects fall under
-    const projectCategories : Array<string> =  portfolioEntries?.categories
+    const projectCategories : string[] =  portfolioEntries?.categories || []
     return (
         <main>
-                {!portfolioEntries ? "Loading..." : projectCategories.map(category => <Category key={category} category={category}/>)}
+                {isLoading ? "Loading..." : projectCategories.map((category: string)=> <Category key={category} category={category}/>)}
         </main>
 )
 }

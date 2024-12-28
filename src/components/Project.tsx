@@ -1,32 +1,34 @@
+import { useState } from 'react';
 import { usePortfolioEntries} from '../hooks/fetchHooks/usePortfolioEntries'
-type Asset = {
-    sys : {
-      id: string,
-      linkType: "Asset",
-      type: "Link" 
+import { ProjectEntry, ProjectAssetCleaned, DemoMedia } from '../types';
+export function Project({entry}: {entry:ProjectEntry}) {
+    const [isExpanded, setIsExpanded] = useState(false)
+    function toggleExpandProject() {
+        setIsExpanded(old => !old)
     }
-  }
-export function Project({entry}) {
     const { data: portfolioEntries } = usePortfolioEntries();
     // Get ids of assets associated with this project
     const demoMediaAssetIDs = entry.demoMedia?.map(
-        (asset : Asset) => {
-          return asset.sys.id
+        (media : DemoMedia) => {
+          return media.sys.id
         }
     );
     // Use asset ids to get assets
     const demoMediaAssets = portfolioEntries?.assets.filter(
-        (item) => demoMediaAssetIDs?.includes(item.id)
+        (asset: ProjectAssetCleaned) => demoMediaAssetIDs?.includes(asset.id)
     );
     return (
-        <article>
+        <article onClick={event => {
+            event.stopPropagation()
+            toggleExpandProject()
+        }}>
             <header>{entry.projectName}</header>
-            {demoMediaAssets?.map((asset) => (
+            {isExpanded ? demoMediaAssets?.map((asset: ProjectAssetCleaned) => (
                 <img 
                   key={asset.id} 
                   src={asset.file.url} 
                 />
-            ))}
+            )) : null}
         </article>
     );
 }
