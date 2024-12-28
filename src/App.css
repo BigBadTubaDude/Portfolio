@@ -1,3 +1,7 @@
+/*scrollbar*/
+html {
+  scrollbar-width: none;
+}
 #root {
   --off-white:rgb(235, 235, 235);
   width: 100%;
@@ -5,7 +9,6 @@
   padding: 2rem;
   text-align: center;
   interpolate-size: allow-keywords;
-  scrollbar-width: none;
 }
 body {
   background: repeating-linear-gradient(
@@ -38,7 +41,7 @@ h1, h2 {
 /***********Category sections of projects**************/
 @scope (section) {
   :scope {
-    margin-block: 2rem;
+    margin-block: .1rem;
   }
   /*Collapsed*/
   /*Drop down arrow*/
@@ -77,7 +80,6 @@ h1, h2 {
   :scope > div {
     /*group of projects per category. collapsed and unseen*/
     height: 0;
-    z-index: -1;
     transition: height .5s, opacity .5s;
     overflow: clip;
     opacity: 0;
@@ -90,8 +92,7 @@ h1, h2 {
   :scope {
     margin-inline: auto;
     border-radius: 16px;
-    width: fit-content;
-    /* outline: 8px ridge var(--off-white); */
+    /* outline: 2px ridge var(--off-white); */
   }
   /*Drop down arrow*/
   .arrow.up {
