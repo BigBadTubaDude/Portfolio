@@ -1,3 +1,12 @@
+#root {
+  --off-white:rgb(235, 235, 235);
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  interpolate-size: allow-keywords;
+  scrollbar-width: none;
+}
 body {
   background: repeating-linear-gradient(
     69deg,
@@ -15,14 +24,6 @@ h1, h2 {
 }
 
 
-#root {
-  --off-white:rgb(235, 235, 235);
-  width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  interpolate-size: allow-keywords;
-}
 
 
 /*Hero section*/
@@ -36,7 +37,9 @@ h1, h2 {
 /*Projects*/
 /***********Category sections of projects**************/
 @scope (section) {
-  
+  :scope {
+    margin-block: 2rem;
+  }
   /*Collapsed*/
   /*Drop down arrow*/
   .arrow {
@@ -74,20 +77,22 @@ h1, h2 {
   :scope > div {
     /*group of projects per category. collapsed and unseen*/
     height: 0;
-    transition: height .5s, opacity .5s, margin .5s;
+    z-index: -1;
+    transition: height .5s, opacity .5s;
+    overflow: clip;
     opacity: 0;
-  }
-  :scope:nth-of-type(odd) > div {
-    margin-left: 50rem;
-  }
-  :scope:nth-of-type(even) > div {
-    /*group of projects per category. collapsed and unseen*/
-    margin-right: 50rem;
+    padding: 0.5rem;
   }
   
 }
 /*Expanded*/
 @scope (section.projects__category--expanded) {
+  :scope {
+    margin-inline: auto;
+    border-radius: 16px;
+    width: fit-content;
+    /* outline: 8px ridge var(--off-white); */
+  }
   /*Drop down arrow*/
   .arrow.up {
     transform: rotate(-135deg);
@@ -98,11 +103,12 @@ h1, h2 {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255,255,255,0.1);
   }
-  &.projects__category--expanded > div {
+  :scope.projects__category--expanded > div {
   /*group of projects per category. expanded*/
   height: auto;
   opacity: 1;
-  margin-left: 0;
-  margin-right: 0;
   }
 }
+
+/*Project components*/
+
