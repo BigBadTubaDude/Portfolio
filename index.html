@@ -6,9 +6,13 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite + React + TS</title>
-  <link rel="stylesheet" href="normalize.css">
-  <!-- resets css, grabbed from https://necolas.github.io/normalize.css/ -->
-  <link rel="stylesheet" href="portfolio.css">
+  <style>
+    #root {
+      min-height: 100vh; /* prevents layout shift on react load */
+    }
+  </style>
+  
+  
 </head>
 
 <body>
