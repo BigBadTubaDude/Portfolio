@@ -31,6 +31,7 @@ export interface ProjectEntry {
         "demoLink": string,
         "projectDescription": Record<string, string>,
         "dateRangeStart": string,
+        "publishedDate": string,
         "tags": string[]
     }
 }

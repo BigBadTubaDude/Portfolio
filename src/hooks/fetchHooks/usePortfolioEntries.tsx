@@ -5,8 +5,14 @@ export function usePortfolioEntries() {
     return useQuery({
         queryKey: ["portfolioEntries"],
         queryFn: getPortfolioEntries,
+        staleTime: Infinity,
         select  : data => {
-            const portfolioEntries = data.items.map((entry: ProjectEntry) => {
+            const sortedPortfolioEntries = data.items.sort((entryA: ProjectEntry, entryB: ProjectEntry) => {
+                const dateA = new Date(entryA.fields.publishedDate).getTime()
+                const dateB = new Date(entryB.fields.publishedDate).getTime()
+                return dateB - dateA
+            })
+            const portfolioEntries = sortedPortfolioEntries.map((entry: ProjectEntry) => {
                 return {
                     id: entry.sys.id,
                     ...entry.fields
@@ -18,7 +24,7 @@ export function usePortfolioEntries() {
                     ...asset.fields
                 }
             })
-            const portfolioCategories: string[]= [...new Set(data.items.flatMap((entry: ProjectEntry) => entry.fields.tags ?? []) as string[])]
+            const portfolioCategories: string[]= [...new Set(sortedPortfolioEntries.flatMap((entry: ProjectEntry) => entry.fields.tags ?? []) as string[])]
     
             return {
                 items : portfolioEntries,
