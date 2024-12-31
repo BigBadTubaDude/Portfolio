@@ -1,7 +1,7 @@
 import { Category } from "./Category"
 import { usePortfolioEntries } from "../hooks/fetchHooks/usePortfolioEntries";
 
-export function Projects() {
+export default function Projects() {
     const { data: portfolioEntries, isLoading} = usePortfolioEntries();
     // Get list of unique categories the projects fall under
     const projectCategories : string[] =  portfolioEntries?.categories || []

@@ -1,6 +1,8 @@
 import "./App.css";
 import "./reset.css";
-import { Projects } from "./components/Projects";
+import { lazy, Suspense } from "react";
+
+const Projects = lazy(() => import("./components/Projects"))
 
 
 function App() {
@@ -15,12 +17,14 @@ function App() {
                 <p id="phoneInfo" className="rightInfo">
                     Phone: 864-633-9727
                 </p>
-                <p id="majorInfo" className="rightInfo">
+                <p id="jobinfo" className="rightInfo">
                     Title: Automation Engineer
                 </p>
                 <p>Company: <a href={vertivHomePageURL}>Vertiv</a></p>
-            </header>      
-                            <Projects />
+            </header>     
+            <Suspense fallback={<div>Loading...</div>}>
+                <Projects />
+            </Suspense> 
         </>
     );
 }

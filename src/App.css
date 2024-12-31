@@ -2,8 +2,10 @@
 html {
   scrollbar-width: none;
 }
+
 #root {
   --off-white:rgb(235, 235, 235);
+  min-height: 100vh; /* prevents layout shift on react load */
   width: 100%;
   margin: 0 auto;
   padding: 2rem;
