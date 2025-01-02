@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function Projects() {
     // Get list of unique categories the projects fall under    
-    const [selectedCategories, setSelectedCategories] = useState([])
+    const [selectedCategories, setSelectedCategories] = useState<string[]>([])
     return (
         <main>
                 <CategoryFilterBar 

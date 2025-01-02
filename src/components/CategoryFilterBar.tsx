@@ -1,9 +1,9 @@
+import { usePortfolioEntries } from "../hooks/fetchHooks/usePortfolioEntries";
 interface CategoryFilterBarProps {
     selectedCategories: string[];
-    setSelectedCategories: (categories: string[]) => void;
+    setSelectedCategories: React.Dispatch<React.SetStateAction<string[]>>;
   }
 
-import { usePortfolioEntries } from "../hooks/fetchHooks/usePortfolioEntries";
 export function CategoryFilterBar({
     selectedCategories, setSelectedCategories
 } : CategoryFilterBarProps) {
